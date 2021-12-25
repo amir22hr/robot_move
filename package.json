@@ -1,0 +1,15 @@
+{
+  "name": "robot_move",
+  "version": "1.0.0",
+  "description": "Robot Move",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amir H Ranjbar",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
