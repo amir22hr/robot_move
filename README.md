@@ -35,7 +35,7 @@ $ npm install
 ## :clipboard: Quick Example
 
 ```txt
-# Go to position ٓaxis x - axis y - Direction
+# Go to position axis x - axis y - Direction
 $ 5-3-up
 or
 $ 4-1-left
