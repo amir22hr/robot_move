@@ -4,6 +4,10 @@
 
 > Move the robot on the checkerboard
 
+NodeJs terminal example:
+
+[![Terminal example](readme/images/robot_move.gif)]()
+
 
 ## :cloud: Installation
 
