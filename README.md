@@ -6,7 +6,7 @@
 
 NodeJs terminal example:
 
-[![Terminal example](readme/images/robot_move.gif)]()
+[![Terminal example](public/robot_move.gif)]()
 
 
 ## :cloud: Installation
