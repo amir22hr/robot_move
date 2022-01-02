@@ -60,7 +60,7 @@ $ left
 - Improve program structure
 - Add last_position feature
 
-### v2.0.0 - 25 December 2021
+### v2.0.0 - 31 December 2021
 - Rewrite the project
 - Use terminal-kit package for full program coverage
 - Fully responsive
