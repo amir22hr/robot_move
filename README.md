@@ -53,3 +53,18 @@ $ right
 # Character counterclockwise rotation
 $ left
 ```
+
+## :hammer_and_wrench: Changelog
+
+v2.1.0 - 02 January 2022
+- Improve program structure
+- Add last_position feature
+
+v2.0.0 - 01 January 2022
+- Rewrite the project
+- Use terminal-kit package for full program coverage
+- Fully responsive
+- Use data storage
+
+v1.0.0 - 26 December 2021
+- create project core

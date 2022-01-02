@@ -3,7 +3,7 @@ const term = terminal.terminal
 
 import { menuPage } from '../menu/menuPage.js'
 import { checkeredPage } from './checkeredPage.js'
-import { lastPositionRobot } from './lastPositionRobot.js'
+import { setLastPosition } from '../../helpers/checkered/setLastPosition.js'
 import { errorPage } from '../error/errorPage.js'
 import { quit } from '../../helpers/quit.js'
 
@@ -38,12 +38,12 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
                 //- exit
                 case "exit":
                 case "EXIT":
-                    lastPositionRobot(_axisX, _axisY, _Direction)
+                    setLastPosition(_axisX, _axisY, _Direction)
                     return quit()
                 //- Go to menu page
                 case "menu":
                 case "MENU":
-                    lastPositionRobot(_axisX, _axisY, _Direction)
+                    setLastPosition(_axisX, _axisY, _Direction)
                     return menuPage()
                 //- Move the character forward
                 case "move":

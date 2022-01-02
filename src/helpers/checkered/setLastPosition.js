@@ -1,8 +1,8 @@
 import editJsonFile from 'edit-json-file'
 
-import { errorPage } from '../error/errorPage.js'
+import { errorPage } from '../../pages/error/errorPage.js'
 
-const lastPositionRobot = async (_axisX, _axisY, _Direction) => {
+const setLastPosition = async (_axisX, _axisY, _Direction) => {
 
     try {
 
@@ -15,9 +15,9 @@ const lastPositionRobot = async (_axisX, _axisY, _Direction) => {
 
 
     } catch (error) {
-        return errorPage(error, 'lastPositionRobot.js', 1)
+        return errorPage(error, 'setLastPosition.js', 1)
     }
 
 }
 
-export { lastPositionRobot }
+export { setLastPosition }

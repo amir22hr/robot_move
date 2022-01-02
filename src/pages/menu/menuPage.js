@@ -3,7 +3,7 @@ const term = terminal.terminal
 
 import { errorPage } from '../error/errorPage.js'
 import { profilePage } from './profilePage.js'
-import { checkeredPage } from '../checkered/checkeredPage.js'
+import { existLastPosition } from '../../helpers/checkered/existLastPosition.js'
 import { quit } from '../../helpers/quit.js'
 
 const menuPage = async () => {
@@ -28,7 +28,7 @@ const menuPage = async () => {
             //switch to control item in menu
             switch (response.selectedIndex) {
                 case 0:
-                    return checkeredPage()
+                    return existLastPosition()
                 case 1:
                     return profilePage()
                 case 2:

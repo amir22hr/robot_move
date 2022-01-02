@@ -3,6 +3,7 @@ import { reportRobot } from './reportRobot.js'
 import { commendRobot } from './commendRobot.js'
 import { errorPage } from '../error/errorPage.js'
 
+
 const checkeredPage = async (
     _axisX = 0,
     _axisY = 0,
