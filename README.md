@@ -60,11 +60,11 @@ $ left
 - Improve program structure
 - Add last_position feature
 
-### v2.0.0 - 01 January 2022
+### v2.0.0 - 25 December 2021
 - Rewrite the project
 - Use terminal-kit package for full program coverage
 - Fully responsive
 - Use data storage
 
-### v1.0.0 - 26 December 2021
+### v1.0.0 - 19 December 2021
 - create project core
