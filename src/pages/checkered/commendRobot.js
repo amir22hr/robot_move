@@ -9,6 +9,9 @@ import { errorPage } from '../error/errorPage.js'
 
 const commendRobot = async (_axisX, _axisY, _Direction, UserName) => {
 
+    //update last_position
+    await setLastPosition(_axisX, _axisY, _Direction, UserName)
+
     //Robot character unicode
     const robotUP = '^y\u{1403}';
     const robotDOWN = '^y\u{1401}';
@@ -39,12 +42,10 @@ const commendRobot = async (_axisX, _axisY, _Direction, UserName) => {
                 //- exit
                 case "exit":
                 case "EXIT":
-                    await setLastPosition(_axisX, _axisY, _Direction, UserName)
                     return await quit(UserName)
                 //- Go to menu page
                 case "menu":
                 case "MENU":
-                    await setLastPosition(_axisX, _axisY, _Direction, UserName)
                     return menuPage(UserName)
                 //- Move the character forward
                 case "move":
