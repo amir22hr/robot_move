@@ -2,7 +2,6 @@ import terminal from 'terminal-kit'
 const term = terminal.terminal
 
 const errorPage = async (err, page, code) => {
-    
     //clear terminal
     console.clear()
 

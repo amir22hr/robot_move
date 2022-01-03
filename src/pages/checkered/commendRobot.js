@@ -4,10 +4,10 @@ const term = terminal.terminal
 import { menuPage } from '../menu/menuPage.js'
 import { checkeredPage } from './checkeredPage.js'
 import { setLastPosition } from '../../helpers/checkered/setLastPosition.js'
-import { errorPage } from '../error/errorPage.js'
 import { quit } from '../../helpers/quit.js'
+import { errorPage } from '../error/errorPage.js'
 
-const commendRobot = async (_axisX, _axisY, _Direction) => {
+const commendRobot = async (_axisX, _axisY, _Direction, UserName) => {
 
     //Robot character unicode
     const robotUP = '^y\u{1403}';
@@ -33,18 +33,19 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
                     return checkeredPage(
                         DirectionX,
                         DirectionY,
-                        _Direction
+                        _Direction,
+                        UserName
                     )
                 //- exit
                 case "exit":
                 case "EXIT":
-                    await setLastPosition(_axisX, _axisY, _Direction)
-                    return await quit()
+                    await setLastPosition(_axisX, _axisY, _Direction, UserName)
+                    return await quit(UserName)
                 //- Go to menu page
                 case "menu":
                 case "MENU":
-                    setLastPosition(_axisX, _axisY, _Direction)
-                    return menuPage()
+                    await setLastPosition(_axisX, _axisY, _Direction, UserName)
+                    return menuPage(UserName)
                 //- Move the character forward
                 case "move":
                 case "MOVE":
@@ -57,7 +58,8 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
                     return checkeredPage(
                         DirectionX <= 5 && DirectionX >= 0 ? DirectionX : _axisX,
                         DirectionY <= 5 && DirectionY >= 0 ? DirectionY : _axisY,
-                        _Direction
+                        _Direction,
+                        UserName
                     )
                 //- Rotate clockwise
                 case "right":
@@ -71,7 +73,8 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
                     return checkeredPage(
                         DirectionX,
                         DirectionY,
-                        _Direction
+                        _Direction,
+                        UserName
                     )
                 //- Rotate counterclockwise
                 case "left":
@@ -85,7 +88,8 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
                     return checkeredPage(
                         DirectionX,
                         DirectionY,
-                        _Direction
+                        _Direction,
+                        UserName
                     )
 
                 //-Go to position ٓaxis x - axis y - Direction
@@ -106,9 +110,10 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
                         return checkeredPage(
                             Number(splitInput[0]) <= 5 && Number(splitInput[0]) >= 0 ? DirectionX = Number(splitInput[0]) : _axisX,
                             Number(splitInput[1]) <= 5 && Number(splitInput[1]) >= 0 ? DirectionY = Number(splitInput[1]) : _axisY,
-                            _Direction
+                            _Direction,
+                            UserName
                         )
-                        
+
                     } catch (error) {
                         return errorPage(errorText, 'commendRobot.js', 1)
                     }

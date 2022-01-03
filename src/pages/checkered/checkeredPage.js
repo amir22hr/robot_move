@@ -7,7 +7,8 @@ import { errorPage } from '../error/errorPage.js'
 const checkeredPage = async (
     _axisX = 0,
     _axisY = 0,
-    _Direction = '^y\u{1403}'
+    _Direction = '^y\u{1403}',
+    UserName
 ) => {
 
     //clear terminal
@@ -23,7 +24,7 @@ const checkeredPage = async (
         await reportRobot(_axisX, _axisY, _Direction)
 
         //commend input
-        await commendRobot(_axisX, _axisY, _Direction)
+        await commendRobot(_axisX, _axisY, _Direction, UserName)
 
 
     } catch (error) {

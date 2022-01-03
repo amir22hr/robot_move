@@ -1,7 +1,8 @@
 import terminal from 'terminal-kit'
 const term = terminal.terminal
 
-import { loginPage } from './auth/loginPage.js'
+import { findAllUsers } from '../helpers/auth/findAllUsers.js'
+import { errorPage } from './error/errorPage.js'
 
 const welcomePage = async () => {
     //clear terminal
@@ -18,7 +19,7 @@ const welcomePage = async () => {
             fit: true,
         })
 
-        // text welcome
+        // message: Have Fun!
         await term.slowTyping(
             "\t Have Fun!  \n",
             {
@@ -26,7 +27,8 @@ const welcomePage = async () => {
                 style: term.red,
             },
             function () {
-                return loginPage()
+                // go to findAllUsers
+                return findAllUsers()
             }
         );
 

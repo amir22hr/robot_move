@@ -1,22 +1,20 @@
-import editJsonFile from 'edit-json-file'
-import date from 'date-and-time';
 import terminal from 'terminal-kit'
 const term = terminal.terminal
 
-import { menuPage } from './menuPage.js';
+import { menuPage } from './menuPage.js'
 import { deletePage } from '../auth/deletePage.js'
 import { errorPage } from '../error/errorPage.js'
 import { quit } from '../../helpers/quit.js'
+import { findAllUsers } from '../../helpers/auth/findAllUsers.js'
+import { findOneUser } from '../../helpers/auth/findOneUser.js'
 
-const profilePage = async () => {
-
+const profilePage = async (UserName) => {
     //clear terminal
     console.clear()
 
     try {
-
-        // get data.json
-        let file = await editJsonFile(`./src/model/data.json`).get();
+        //find user
+        let user = await findOneUser(UserName)
 
         // show picture user
         await term.drawImage('./src/public/image/profile.png', {
@@ -29,7 +27,7 @@ const profilePage = async () => {
         // info user table
         await term.table([
             ['name', 'last_position', 'last_login'],
-            [file.user.name, file.last_position, file.last_login],
+            [user.name, user.last_position, user.last_login],
         ], {
             hasBorder: true,
             contentHasMarkup: true,
@@ -42,6 +40,7 @@ const profilePage = async () => {
         var items = [
             '- Delete Account',
             '- Menu',
+            '- Switch User',
             '- Quit'
         ];
         //show menu items
@@ -50,15 +49,21 @@ const profilePage = async () => {
 
             //switch to control item in menu
             switch (response.selectedIndex) {
+                //- go to deletePage for delete user account
                 case 0:
-                    return deletePage()
+                    return deletePage(UserName)
+                //- go to menuPage
                 case 1:
-                    return menuPage()
+                    return menuPage(UserName)
+                //- switch user account
                 case 2:
-                    return quit()
-
+                    return findAllUsers()
+                //- exit app
+                case 3:
+                    return quit(UserName)
+                //- go back to profilePage
                 default:
-                    return profilePage()
+                    return profilePage(UserName)
             }
         })
 

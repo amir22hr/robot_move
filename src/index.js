@@ -1,7 +1,9 @@
 import { welcomePage } from './pages/welcomePage.js'
 
+//Starting App
+
 (async () => {
-    // welcome page
+    // go to welcome page
     await welcomePage();
 
 })()

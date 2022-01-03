@@ -1,18 +1,18 @@
-import editJsonFile from 'edit-json-file'
-
+import { Users } from '../../model/Users.js'
 import { errorPage } from '../../pages/error/errorPage.js'
 
-const setLastPosition = async (_axisX, _axisY, _Direction) => {
+const setLastPosition = async (_axisX, _axisY, _Direction, UserName) => {
 
     try {
-
-        //get data.json
-        let file = await editJsonFile(`./src/model/data.json`);
-        //set date to data.json
-        await file.set('last_position', `${_axisX}-${_axisY}-${_Direction}`)
-        //save changes
-        await file.save()
-
+        //update last_position of user
+        await Users.update(
+            { last_position: `${_axisX}-${_axisY}-${_Direction}` },
+            {
+                where: {
+                    name: UserName
+                }
+            }
+        )
 
     } catch (error) {
         return errorPage(error, 'setLastPosition.js', 1)

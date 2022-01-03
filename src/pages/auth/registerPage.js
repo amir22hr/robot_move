@@ -1,32 +1,28 @@
 import terminal from 'terminal-kit'
 const term = terminal.terminal
 
-import { checkExistUser } from '../../helpers/auth/checkExistUser.js'
 import { makeUser } from '../../helpers/auth/makeUser.js'
-import { menuPage } from '../menu/menuPage.js'
-import { errorPage } from '../error/errorPage.js'
 import { quit } from '../../helpers/quit.js'
+import { errorPage } from '../error/errorPage.js'
 
-const loginPage = async () => {
-
-    //clear
+const registerPage = async () => {
+    //clear terminal
     console.clear()
 
     try {
-        //check Exist User
-        const user = await checkExistUser()
-        if (!!user) return menuPage()
+        //title page
+        term.bold().blue().bgBlack('\u{2630} Sign Up\n\n')
 
         //input name
-        await term('\u{1F524} Please enter your name: ');
+        await term.white('\u{1F524} Please enter your name: ')
         await term.inputField({}, (error, input) => {
-            if (error) return errorPage(error, 'loginPage.js', 1)
+            if (error) return errorPage(error, 'registerPage.js', 1)
             
             //switch for control commend
             switch (input) {
                 //- if input is empty go to errorPage
                 case "":
-                    return errorPage("No value sent", 'loginPage.js', 1)
+                    return errorPage("No value sent", 'registerPage.js', 1)
                 //- exit 
                 case "exit":
                 case "EXIT":
@@ -38,10 +34,10 @@ const loginPage = async () => {
 
         })
     } catch (error) {
-        return errorPage(error, 'loginPage.js', 1)
+        return errorPage(error, 'registerPage.js', 1)
     }
 
 
 }
 
-export { loginPage }
+export { registerPage }

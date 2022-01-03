@@ -1,6 +1,6 @@
 {
   "name": "robot_move",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Fantastic motion robot",
   "main": "index.js",
   "type": "module",
@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "date-and-time": "^2.0.1",
-    "edit-json-file": "^1.7.0",
+    "sequelize": "^7.0.0-alpha.4",
+    "sqlite3": "^5.0.2",
     "terminal-kit": "^2.3.0"
   },
   "devDependencies": {

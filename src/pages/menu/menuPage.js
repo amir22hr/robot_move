@@ -1,12 +1,13 @@
 import terminal from 'terminal-kit'
 const term = terminal.terminal
 
-import { errorPage } from '../error/errorPage.js'
 import { profilePage } from './profilePage.js'
 import { existLastPosition } from '../../helpers/checkered/existLastPosition.js'
+import { findAllUsers } from '../../helpers/auth/findAllUsers.js'
 import { quit } from '../../helpers/quit.js'
+import { errorPage } from '../error/errorPage.js'
 
-const menuPage = async () => {
+const menuPage = async (UserName) => {
     //clear terminal
     console.clear()
 
@@ -15,11 +16,12 @@ const menuPage = async () => {
         var items = [
             '- Play Game',
             '- Profile',
+            '- Switch User',
             '- Quit'
         ];
 
         // print Main Menu
-        term.bold().underline().blue().bgBlack( '\u{2630} ^GM^ra^Yi^un ^MM^be^bn^cu\n')
+        term.bold().underline().blue().bgBlack('\u{2630} ^GM^ra^Yi^un ^MM^be^bn^cu\n')
 
         //menu
         await term.singleColumnMenu(items, (error, response) => {
@@ -27,15 +29,21 @@ const menuPage = async () => {
 
             //switch to control item in menu
             switch (response.selectedIndex) {
+                //- go to checkered game
                 case 0:
-                    return existLastPosition()
+                    return existLastPosition(UserName)
+                //- go to profilePage
                 case 1:
-                    return profilePage()
+                    return profilePage(UserName)
+                //- Switch User Account
                 case 2:
-                    return quit()
-
+                    return findAllUsers()
+                //- Exit app
+                case 3:
+                    return quit(UserName)
+                //- go to menuPage
                 default:
-                    return menuPage()
+                    return menuPage(UserName)
             }
         });
 

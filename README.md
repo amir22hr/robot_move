@@ -17,7 +17,6 @@ $ cd robot_move
 $ npm install
 ```
 
-
 ## :question: Get Help
 
 **For run game** :rocket: 
@@ -56,8 +55,10 @@ $ left
 
 ## :hammer_and_wrench: Changelog
 
-### v2.1.1 - 03 January 2022
-- fix last_position bug
+### v2.2.0 - 03 January 2022
+- Add sqlite for data storage
+- Add Switch User
+- Improve program structure
 
 ### v2.1.0 - 02 January 2022
 - Improve program structure

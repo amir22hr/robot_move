@@ -1,23 +1,20 @@
-import editJsonFile from 'edit-json-file'
-
+import { welcomePage } from '../../pages/welcomePage.js'
+import { Users } from '../../model/Users.js';
 import { errorPage } from '../../pages/error/errorPage.js'
-import { welcomePage } from '../../pages/welcomePage.js';
 
-const deleteAccount = async () => {
+const deleteAccount = async (UserName) => {
 
     try {
-
-        // get data.json
-        let file = await editJsonFile(`./src/model/data.json`);
-        // delete account
-        await file.set("user.name", "");
-        await file.set("last_position", "");
-        await file.set("last_login", []);
-        //save changes
-        await file.save()
-
+        // delete user account
+        await Users.destroy({
+            where: {
+                name: UserName
+            }
+        })
+        //Account deletion was successful
         //return to welcomePage
         return welcomePage()
+
     } catch (error) {
         return errorPage(error, 'deleteAccount.js', 1)
     }
