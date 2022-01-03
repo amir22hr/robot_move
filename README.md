@@ -56,6 +56,9 @@ $ left
 
 ## :hammer_and_wrench: Changelog
 
+### v2.1.1 - 03 January 2022
+- fix last_position bug
+
 ### v2.1.0 - 02 January 2022
 - Improve program structure
 - Add last_position feature
