@@ -23,7 +23,7 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
 
         //inputField
         await term.bgBlack().yellow()('\n\n\u{1F916}commend: ')
-        await term.inputField({}, (error, input) => {
+        await term.inputField({}, async (error, input) => {
             if (error) return errorPage(error, 'checkeredPage.js', 1)
 
             //switch for control commend
@@ -38,8 +38,8 @@ const commendRobot = async (_axisX, _axisY, _Direction) => {
                 //- exit
                 case "exit":
                 case "EXIT":
-                    setLastPosition(_axisX, _axisY, _Direction)
-                    return quit()
+                    await setLastPosition(_axisX, _axisY, _Direction)
+                    return await quit()
                 //- Go to menu page
                 case "menu":
                 case "MENU":

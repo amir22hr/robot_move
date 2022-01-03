@@ -10,7 +10,7 @@ const existLastPosition = async () => {
         let file = await editJsonFile(`./src/model/data.json`).get()
         let valueSplit = await file.last_position.split('-')
         //if exist return true 
-        if (!!valueSplit) {
+        if (!!file.last_position) {
             // go to checkeredPage with parameters
             return await checkeredPage(Number(valueSplit[0]), Number(valueSplit[1]), String(valueSplit[2]))
         }
