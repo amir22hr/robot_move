@@ -7,3 +7,5 @@ import { welcomePage } from './pages/welcomePage.js'
     await welcomePage();
 
 })()
+
+console.log(123)
